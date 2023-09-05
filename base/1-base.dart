@@ -1,6 +1,8 @@
-
+import 'dart:io' show Platform;
 
 void main() {
+  var version = Platform.version;
+  print("version:" + version);
   var name = "hello word";
   // declare a string type value a variable
   String name1 = "hello word";
@@ -19,7 +21,7 @@ void main() {
 
   ({String a, int b}) record1;
   //record1 = ("hello", 123);
-  record1 =(a: "hello", b: 123);
+  record1 = (a: "hello", b: 123);
   print(record1);
   print(record1.a);
 
@@ -27,6 +29,7 @@ void main() {
     var (a, b) = record;
     return (b, a);
   }
+
   var a = swap((1, 2));
   print('a: $a b: ${a.$2}');
 
