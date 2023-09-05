@@ -1,4 +1,4 @@
-void Main() {
+void main() {
 // 可空类型
 // ??= 赋值运算符，如果变量为null，则赋值
   String? name = 'Jane';
@@ -23,4 +23,21 @@ void Main() {
   myObject?.someProperty?.someMethod()
   The preceding code returns null (and never calls someMethod()) if either myObject or myObject.someProperty is null.
   */
+
+  // set
+  final aListOfInts = <int>[
+    1,
+    23,
+  ];
+  print('aListOfInts: $aListOfInts');
+  final aSetOfInts = <int>{1, 2, 1};
+  print('aSetOfInts: $aSetOfInts');
+  final aMapOfIntToDouble = <int, double>{1: 2.0, 3: 4.0};
+  print('aMapOfIntToDouble: $aMapOfIntToDouble');
+  final aListOfStrings = ['one', 'two'];
+  print('aListOfStrings: $aListOfStrings');
+  bool hasEmpty = aListOfStrings.any((element) => element.isEmpty);
+  print('hasEmpty: $hasEmpty');
+  List<String>? aListOfStrings2 = null;
+  print(aListOfStrings2?.length);
 }
