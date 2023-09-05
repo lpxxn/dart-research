@@ -29,6 +29,12 @@ void main() {
   }
   var a = swap((1, 2));
   print('a: $a b: ${a.$2}');
+
+  // dynamic is another variable declaration in which the type is not evaluated by the dart static type checking.
+  // it can change its value and data type.
+  // some dartisans uses dynamic cautiously as it can not keep track of its data type. so use it at your own risk
+  dynamic dynamicValue = "I'm a string";
+  dynamicValue = 123;
 }
 
 example1() {
