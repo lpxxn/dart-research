@@ -62,7 +62,7 @@ void main() {
     errs.add('Caught $e');
   }
   try {
-    tryFunction(() => throw 'A String', logger)
+    tryFunction(() => throw 'A String', logger);
   }
 }
 
