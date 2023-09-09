@@ -61,9 +61,47 @@ void main() {
   } catch (e) {
     errs.add('Caught $e');
   }
+  errs.forEach((element) {
+    print(element);
+  });
+
+  logger = MyLogger();
+  bool caughtStringException = false;
+
+  print('Expecting to catch a String exception');
   try {
     tryFunction(() => throw 'A String', logger);
+  } on String {
+    caughtStringException = true;
   }
+  if (!caughtStringException) {
+    errs.add('Expected to catch a String, but did not.');
+  }
+  errs.forEach((element) {
+    print(element);
+  });
+
+  print('null exception');
+  logger = MyLogger();
+  try {
+    tryFunction(() {}, logger);
+    if (logger.lastType != null) {
+      errs.add('Expected null type, got ${logger.lastType}');
+    }
+    if (logger.lastMessage != '') {
+      errs.add('Expected empty message, got ${logger.lastMessage}');
+    }
+    if (!logger.done) {
+      errs.add('Expected done to be true, got false');
+    }
+  } catch (e) {
+    _result(false, [
+      'Untrustworthy didn\'t throw an exception, but an exception of type ${e.runtimeType} was unhandled by tryFunction.'
+    ]);
+  }
+  errs.forEach((element) {
+    print(element);
+  });
 }
 
 void _result(bool bool, List<String> list) {
