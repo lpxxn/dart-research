@@ -37,3 +37,18 @@ void main(List<String> args) {
   print(greetBob(Person('Kathy', 10)));
   print(greetBob(Impostor()));
 }
+
+class Person2 {
+  String firstName;
+  Person2.fromJson(this.firstName) {
+    print('in Person');
+  }
+}
+
+class Employee extends Person2 {
+  // Person does not have a default constructor;
+  // you must call super.fromJson(data).
+  Employee.fromJson(String data) : super.fromJson(data) {
+    print('in Employee');
+  }
+}
