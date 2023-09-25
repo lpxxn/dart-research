@@ -4,7 +4,10 @@ String creteOrderMessage() {
   order.whenComplete(() => print('complete'));
   order.then(
       (value) => print('~~~:order type: ${value.runtimeType} value: $value'));
-  var b = await Future.wait<String>([order]);
+  // var b =  Future.wait<String>([order]);
+  var b = Future.wait<String>([order])
+      .then((value) => print('futuer wait value: $value'));
+
   return 'Your order is: $order b: $b';
 }
 
