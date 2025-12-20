@@ -32,6 +32,7 @@ void main(List<String> args) {
 }
 
 /*
+.. 级联操作符，返回的是原始对象 obj
 myObject..someMethod()
 Although it still invokes someMethod() on myObject, the result of the expression isn’t the return value—it’s a reference to myObject!
 
